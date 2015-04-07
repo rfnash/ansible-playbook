@@ -1,0 +1,12 @@
+---
+- hosts: devel
+
+  tasks:
+
+    - name: install xbps repositories
+      xbps: pkg={{item}} state=installed
+      sudo: True
+      with_items:
+        - void-repo-multilib
+        - void-repo-multilib-nonfree
+        - void-repo-nonfree
