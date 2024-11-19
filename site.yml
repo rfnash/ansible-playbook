@@ -1,0 +1,21 @@
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Perform system upgrade
+      pacman:
+        update_cache: yes
+        upgrade: yes
+    - name: Install system pacman packages
+      pacman:
+        name:
+          - base
+          - msys2-runtime
+          - filesystem
+          - git
+          - mingw-w64-ucrt-x86_64-bat
+          - mingw-w64-ucrt-x86_64-eza
+          - mingw-w64-ucrt-x86_64-neovim
+          - mingw-w64-ucrt-x86_64-ripgrep-all
+          - mingw-w64-ucrt-x86_64-starship
+          - mingw-w64-ucrt-x86_64-zoxide
+        state: present
