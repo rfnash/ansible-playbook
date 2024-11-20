@@ -2,11 +2,11 @@
   ansible.builtin.hostname:
     name: "{{ inventory_hostname }}"
 - name: Perform system upgrade
-  apk:
+  community.general.apk:
     update_cache: yes
     upgrade: yes
 - name: Install base packages
-  apk:
+  community.general.apk:
     name:
       - alpine-baselayout
       - alpine-keys
@@ -16,7 +16,7 @@
       - libc-utils
     state: present
 - name: Tailscale
-  apk:
+  community.general.apk:
     name:
       - tailscale
     state: present

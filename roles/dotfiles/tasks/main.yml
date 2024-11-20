@@ -1,12 +1,12 @@
 - name: Install terminal utilities
-  apk:
+  community.general.apk:
     name:
       - starship
       - exa
       - bat
     state: present
 - name: Install git
-  apk:
+  community.general.apk:
     name: git
     state: present
  #- name: Checkout dotfiles

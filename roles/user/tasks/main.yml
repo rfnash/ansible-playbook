@@ -1,5 +1,5 @@
 - name: Install zsh
-  apk:
+  community.general.apk:
     name:
       - zsh
       - alpine-zsh-config
@@ -19,7 +19,7 @@
     # groups:
     # append: true
 - name: Install sudo
-  apk:
+  community.general.apk:
     name: sudo
     state: present
 - name: Add 'rfnash' to sudoers
