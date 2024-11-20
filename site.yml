@@ -23,3 +23,21 @@
         name:
           - tailscale
         state: present
+    - name: Install zsh
+      apk:
+        name: zsh
+        state: present
+    - name: Ensure group "rfnash" exists with correct gid
+      ansible.builtin.group:
+        name: rfnash
+        state: present
+        gid: 1001
+    - name: Ensure user "rfnash" exists with correct uid
+      ansible.builtin.user:
+        name: rfnash
+        state: present
+        uid: 1000
+        group: rfnash
+        # groups:
+        # append: true
+        shell: /bin/zsh
