@@ -18,3 +18,8 @@
           - busybox
           - libc-utils
         state: present
+    - name: Tailscale
+      apk:
+        name:
+          - tailscale
+        state: present
