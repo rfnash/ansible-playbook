@@ -4,6 +4,9 @@
       - starship
       - exa
       - bat
+      - keychain
+      - atuin
+      - zoxide
     state: present
 - name: Install git
   community.general.apk:
