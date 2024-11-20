@@ -1,6 +1,9 @@
 - hosts: all
   gather_facts: yes
   tasks:
+    - name: Set hostname
+      ansible.builtin.hostname:
+        name: "{{ inventory_hostname }}"
     - name: Perform system upgrade
       apk:
         update_cache: yes
