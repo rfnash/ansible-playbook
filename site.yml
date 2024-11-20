@@ -1,0 +1,17 @@
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Perform system upgrade
+      apk:
+        update_cache: yes
+        upgrade: yes
+    - name: Install base packages
+      apk:
+        name:
+          - alpine-baselayout
+          - alpine-keys
+          - apk-tools
+          - bash
+          - busybox
+          - libc-utils
+        state: present
