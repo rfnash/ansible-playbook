@@ -1,0 +1,9 @@
+- name: Create /etc/wsl.conf
+  ansible.builtin.copy:
+    content: |
+      [boot]
+      command = "/usr/bin/env -i /usr/bin/unshare --pid --mount-proc --fork --propagation private -- sh -c 'exec /sbin/init'"
+
+      [user]
+      default=rfnash
+    dest: /etc/wsl.conf

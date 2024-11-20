@@ -1,52 +1,7 @@
 - hosts: all
   gather_facts: yes
-  tasks:
-    - name: Set hostname
-      ansible.builtin.hostname:
-        name: "{{ inventory_hostname }}"
-    - name: Perform system upgrade
-      apk:
-        update_cache: yes
-        upgrade: yes
-    - name: Install base packages
-      apk:
-        name:
-          - alpine-baselayout
-          - alpine-keys
-          - apk-tools
-          - bash
-          - busybox
-          - libc-utils
-        state: present
-    - name: Tailscale
-      apk:
-        name:
-          - tailscale
-        state: present
-    - name: Install zsh
-      apk:
-        name: zsh
-        state: present
-    - name: Ensure group "rfnash" exists with correct gid
-      ansible.builtin.group:
-        name: rfnash
-        state: present
-        gid: 1001
-    - name: Ensure user "rfnash" exists with correct uid
-      ansible.builtin.user:
-        name: rfnash
-        state: present
-        uid: 1000
-        group: rfnash
-        # groups:
-        # append: true
-        shell: /bin/zsh
-    - name: Create /etc/wsl.conf
-      ansible.builtin.copy:
-        content: |
-          [boot]
-          command = "/usr/bin/env -i /usr/bin/unshare --pid --mount-proc --fork --propagation private -- sh -c 'exec /sbin/init'"
-
-          [user]
-          default=rfnash
-        dest: /etc/wsl.conf
+  roles:
+    - common
+    - user
+    - wsl
+    - dotfiles

@@ -1,0 +1,37 @@
+- name: Install zsh
+  apk:
+    name:
+      - zsh
+      - alpine-zsh-config
+    state: present
+- name: Ensure group "rfnash" exists with correct gid
+  ansible.builtin.group:
+    name: rfnash
+    state: present
+    gid: 1001
+- name: Ensure user "rfnash" exists with correct uid
+  ansible.builtin.user:
+    name: rfnash
+    state: present
+    uid: 1000
+    group: rfnash
+    shell: /bin/zsh # TODO: doesn't work
+    # groups:
+    # append: true
+- name: Install sudo
+  apk:
+    name: sudo
+    state: present
+- name: Add 'rfnash' to sudoers
+  community.general.sudoers:
+    name: rfnash
+    user: rfnash
+    commands: ALL
+    nopassword: true
+    state: present
+- name: Copy ssh directory
+  ansible.builtin.copy:
+    src: ~/.ssh
+    dest: /home/rfnash
+    owner: rfnash
+    group: rfnash
