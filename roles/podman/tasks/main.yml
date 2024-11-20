@@ -1,0 +1,6 @@
+- name: Install podman
+  community.general.apk:
+    name:
+      - podman
+      - podman-compose
+    state: present

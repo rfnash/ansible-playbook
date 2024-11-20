@@ -6,3 +6,4 @@
     - wsl
     - dotfiles
     - ansible
+    - podman
