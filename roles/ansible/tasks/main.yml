@@ -1,0 +1,6 @@
+- name: Install ansible
+  community.general.apk:
+    name:
+      - ansible
+      - just 
+    state: present
