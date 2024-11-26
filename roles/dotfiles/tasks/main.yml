@@ -1,13 +1,3 @@
-- name: Install terminal utilities
-  community.general.apk:
-    name:
-      - starship
-      - exa
-      - bat
-      - keychain
-      - atuin
-      - zoxide
-    state: present
 - name: Install git
   community.general.apk:
     name: git
@@ -17,5 +7,18 @@
  #    repo: git@github.com:rfnash/dotfiles.git
  #    dest: /home/rfnash
  #    version: alpine-wsl
- #    # key_file: /home/rfnash/.ssh/id_ed25519
-
+ #    key_file: /home/rfnash/.ssh/id_ed25519
+- name: Install dotfiles` requirements
+  community.general.apk:
+    name:
+      - zsh
+      - starship
+      - zoxide
+      - atuin
+      - atuin-sync
+      - mise
+      - direnv
+      - keychain
+      - exa
+      - bat
+    state: present
