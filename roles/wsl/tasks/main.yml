@@ -14,6 +14,9 @@
       [boot]
       command = "/usr/bin/env -i /usr/bin/unshare --pid --mount-proc --fork --propagation private -- sh -c 'exec /sbin/init'"
 
+      [network]
+      hostname = {{ inventory_hostname }}
+
       [user]
       default=rfnash
     dest: /etc/wsl.conf
