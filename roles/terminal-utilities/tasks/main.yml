@@ -1,0 +1,6 @@
+- name: Install terminal utilities
+  community.general.apk:
+    state: present
+    name:
+      - ripgrep
+      - openssh

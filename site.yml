@@ -3,6 +3,7 @@
   roles:
     - common
     - dotfiles
+    - terminal-utilities
 - hosts: rfnash-inspiron-alpine
   roles:
     - user
