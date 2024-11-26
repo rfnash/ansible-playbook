@@ -1,18 +1,17 @@
 - hosts: all
   gather_facts: yes
-- hosts: rfnash-inspiron-alpine
   roles:
     - common
+    - dotfiles
+- hosts: rfnash-inspiron-alpine
+  roles:
     - user
     - wsl
-    - dotfiles
     - ansible
     - podman
 - hosts: raspberrypi
   roles:
-    - common
     - raspberrypi
-    - dotfiles
   tasks:
     - name: Add group 'rfnash'
       ansible.builtin.group:
