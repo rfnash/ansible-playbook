@@ -1,3 +1,13 @@
+- name: Install base packages
+  community.general.apk:
+    name:
+      - alpine-baselayout
+      - alpine-keys
+      - apk-tools
+      - bash
+      - busybox
+      - libc-utils
+    state: present
 - name: Create /etc/wsl.conf
   ansible.builtin.copy:
     content: |

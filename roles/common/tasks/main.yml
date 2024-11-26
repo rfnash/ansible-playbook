@@ -11,16 +11,6 @@
   community.general.apk:
     update_cache: yes
     upgrade: yes
-- name: Install base packages
-  community.general.apk:
-    name:
-      - alpine-baselayout
-      - alpine-keys
-      - apk-tools
-      - bash
-      - busybox
-      - libc-utils
-    state: present
 - name: Tailscale
   community.general.apk:
     name:
