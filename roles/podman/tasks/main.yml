@@ -3,4 +3,6 @@
     name:
       - podman
       - podman-compose
+      - podman-doc
+      - crun
     state: present
