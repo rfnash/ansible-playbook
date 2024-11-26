@@ -1,0 +1,30 @@
+- name: Install raspberrypi packages
+  community.general.apk:
+    state: present
+    name:
+      - linux-firmware-brcm
+      - linux-firmware-other
+      - linux-rpi
+      - raspberrypi-bootloader
+- name: Install wireless packages
+  community.general.apk:
+    state: present
+    name:
+      - iw
+      - wpa_supplicant
+- name: Install system packages
+  community.general.apk:
+    state: present
+    name:
+      - alpine-base
+      - busybox-mdev-openrc
+      - chrony
+      - doas
+      - openssl
+- name: Install filesystem packages
+  community.general.apk:
+    state: present
+    name:
+      - dosfstools
+      - e2fsprogs
+      - lvm2

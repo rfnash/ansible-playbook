@@ -1,5 +1,6 @@
 - hosts: all
   gather_facts: yes
+- hosts: rfnash-inspiron-alpine
   roles:
     - common
     - user
@@ -7,3 +8,28 @@
     - dotfiles
     - ansible
     - podman
+- hosts: raspberrypi
+  roles:
+    - common
+    - raspberrypi
+    - dotfiles
+  tasks:
+    - name: Add group 'rfnash'
+      ansible.builtin.group:
+        name: rfnash
+        state: present
+        gid: 1000
+    - name: Add user 'rfnash'
+      ansible.builtin.user:
+        name: rfnash
+        state: present
+        uid: 1000
+        group: rfnash
+        shell: /bin/zsh #TODO: might not work
+    - name: Add 'rfnash' to sudoers
+      community.general.sudoers:
+        name: rfnash
+        user: rfnash
+        commands: ALL
+        nopassword: true
+        state: present
