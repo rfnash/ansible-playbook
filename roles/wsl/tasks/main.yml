@@ -18,5 +18,5 @@
       hostname = {{ inventory_hostname }}
 
       [user]
-      default=rfnash
+      default = rfnash
     dest: /etc/wsl.conf
