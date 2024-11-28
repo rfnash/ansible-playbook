@@ -26,6 +26,10 @@
         uid: 1000
         group: rfnash
         shell: /bin/zsh #TODO: might not work
+    - name: Install sudo
+      community.general.apk:
+        state: present
+        name: sudo
     - name: Add 'rfnash' to sudoers
       community.general.sudoers:
         name: rfnash
