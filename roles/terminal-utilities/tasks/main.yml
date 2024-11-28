@@ -2,5 +2,35 @@
   community.general.apk:
     state: present
     name:
-      - ripgrep
+      - age
+      - aria2
+      - curl
+      - dar
+      - diffoscope
+      - dtrx
+      - file
+      - git-annex
+      - git-annex-doc
+      - git-annex-zsh-completion
+      - git-doc
+      - just
+      - man-db
+      - moreutils
+      - myrepos
+      - myrepos-doc
+      - ncdu
+      - ncdu-doc
+      - neovim
       - openssh
+      - rage
+      - ripgrep
+      - rsync
+      - rsync-doc
+      - sed
+      - sops
+      - tmux
+      - topgrade
+      - unison
+      - unison-doc
+      - unzip
+      - vimdiff
