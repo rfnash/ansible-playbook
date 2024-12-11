@@ -1,0 +1,35 @@
+  - name: My first play
+    hosts: devel
+    tasks:
+      - name: Update repositories
+        become: true
+        community.general.apk:
+          update_cache: true
+      - name: Install documentation
+        become: true
+        community.general.apk:
+          name: man-db,man-pages,man-pages-posix
+      - name: Install base packages
+        become: true
+        community.general.apk:
+          name: alpine-baselayout,alpine-keys,ansible-core,apk-tools,busybox,fuse,openrc,openssh,restic,shadow,sudo,tailscale,tmux,tzdata,xdg-user-dirs,xdg-utils,xsel
+      - name: Make the command line pleasent
+        become: true
+        community.general.apk:
+          name: atuin,atuin-sync,bash,bat,exa,keychain,moreutils,ripgrep,starship,zoxide,zsh
+      - name: Install encryption utilities
+        become: true
+        community.general.apk:
+          name: age,gpg,gpg-agent,sops
+      - name: Install command line utilities
+        become: true
+        community.general.apk:
+          name: curl,dtrx,ncdu,rsync,topgrade
+      - name: Install development utilities
+        become: true
+        community.general.apk:
+          name: build-base,cloc,direnv,gcompat,git,github-cli,go,jujutsu,meld,nix,roswell
+      - name: Install text editors
+        become: true
+        community.general.apk:
+          name: emacs-x11-nativecomp,font-dejavu-sans-mono-nerd,helix,neovim,tree-sitter-grammars
